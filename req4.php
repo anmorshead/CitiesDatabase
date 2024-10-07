@@ -5,17 +5,17 @@ $conn = getDBconnection();
 $city_name = '';
 $district = '';
 $population = '';
-$country = '';
 $message = '';
 
 if(!empty($_POST['Name']) && !empty($_POST['District']) && !empty($_POST['Population']) && !empty($_POST['country'])){
     $city_name = $_POST['Name'];
     $district = $_POST['District'];
     $population = $_POST['Population'];
-    $country = $_POST['country'];
+    $country_code = $_POST['country'];
 
     $sql = "INSERT INTO city (Name, District, Population, CountryCode)";
-    $sql .= " VALUES ('$city_name', '$district', '$population', '$country')";
+    $sql .= " VALUES ('$city_name', '$district', '$population', '$country_code')";
+
 
     $result = mysqli_query($conn, $sql);
     if (!$result) {
