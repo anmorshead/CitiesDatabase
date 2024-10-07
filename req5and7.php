@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>REQ 5</title>
+    <title>REQ 5 & 7</title>
 </head>
 <body>
 <h1>Cities of the World</h1>
@@ -56,7 +56,9 @@
         echo "<td><a href='edit_city.php?id=" . $row['ID'] . "'>
                     <button>Edit</button>
                 </a>
-                <button>Delete</button></td>";
+                <a href='delete_city.php?id=" . $row['ID'] . "'>
+                    <button>Delete</button>
+                </a></td>";
         echo "</tr>";
     }
     ?>
