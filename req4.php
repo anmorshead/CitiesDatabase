@@ -34,14 +34,14 @@ if(!empty($_POST['Name']) && !empty($_POST['District']) && !empty($_POST['Popula
 </head>
 <body>
 <h1>Add a city to our database!</h1>
-
-<form id="updateCity" name="updateCity" method="post" action="">
-    <p><label>City Name: <input type="text" name="Name" id="Name" value=""/></label></p>
-    <p><label>District: <input type="text" name="District" id="district" value="" /></label></p>
-    <p><label>Population: <input type="text" name="Population" id="Population" value="" /></label></p>
-    <p><label>Country: </label>
-        <select name="country" id="country">
-            <option value="">Select a Country</option>
+<script src="validation.js" type="text/javascript"></script>
+<form id="updateCity" name="updateCity" method="post" action="" onsubmit="return checkForm()">
+    <p><label>City Name: <input type="text" name="Name" id="Name" value=""/></label></p><span id="nameWarning"></span>
+    <p><label>District: <input type="text" name="District" id="district" value="" /></label></p><span id="districtWarning"></span>
+    <p><label>Population: <input type="text" name="Population" id="Population" value="" /></label></p><span id="populationWarning"></span>
+    <p><label>Country: </label><span id="countryWarning"></span>
+        <select name="country" id="country"></p>
+            <option value="" >Select a Country</option>
              <?php
 
              // get all countries from the database
