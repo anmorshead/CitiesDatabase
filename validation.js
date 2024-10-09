@@ -33,7 +33,7 @@ function checkForm() {
 }
 
 function checkCapitalLetter(input) {
-    const pattern = /^[A-Z]/;
+    const pattern = /^[A-Z][a-zA-Z'-]*$/;
     return pattern.test(input)
 }
 

@@ -13,6 +13,7 @@
         <th>District</th>
         <th>Population</th>
         <th>Country Name</th>
+        <th>Additional Actions</th>
     </tr>
 
 
@@ -58,7 +59,11 @@
                 </a>
                 <a href='delete_city.php?id=" . $row['ID'] . "'>
                     <button>Delete</button>
+                </a>
+                <a href='more_info.php?id=" . $row['ID'] . "'>
+                    <button>More Info..</button>
                 </a></td>";
+
         echo "</tr>";
     }
     ?>
