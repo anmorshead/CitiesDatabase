@@ -26,16 +26,16 @@ if ($row = mysqli_fetch_assoc($result)) {
 
 
 ?>
-
-<form id="updateCity" name="updateCity" method="post" action="edit_city_complete.php">
+<script src="validation.js" type="text/javascript"></script>
+<form id="updateCity" name="updateCity" method="post" action="edit_city_complete.php" onsubmit="return checkForm()">
 <!--    need to pass along the id somehow-->
     <input type="hidden" name="id" value="<?php echo $cityID; ?>" />
-    <p><label>City Name: <input type="text" name="Name" id="Name" value="<?php echo $city_name; ?>"/></label></p>
-    <p><label>District: <input type="text" name="District" id="district" value="<?php echo $district; ?>" /></label></p>
-    <p><label>Population: <input type="text" name="Population" id="Population" value="<?php echo $population; ?>" /></label></p>
+    <p><label>City Name: <input type="text" name="Name" id="Name" value="<?php echo $city_name; ?>"/></label></p><span id="nameWarning"></span>
+    <p><label>District: <input type="text" name="District" id="district" value="<?php echo $district; ?>" /></label></p><span id="districtWarning"></span>
+    <p><label>Population: <input type="text" name="Population" id="Population" value="<?php echo $population; ?>" /></label></p><span id="populationWarning"></span>
     <p><label>Country: </label>
         <select name="country" id="country">
-            <option value="">Select a Country</option>
+            <option value="" disabled>Select a Country</option>
              <?php
 
              // get all countries from the database
