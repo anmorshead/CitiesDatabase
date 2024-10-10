@@ -1,3 +1,7 @@
+<?php
+ require_once('isLoggedIn.php');
+checkIfLoggedIn();
+?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -65,6 +69,9 @@ closeDbConnection($conn);
         <style>
             table, th, tr, td { border: solid 2px black;}
         </style>
+        <form name="LogoutForm" action="logOut.php" method="post">
+            <input type="submit" name="logoutButton" value="Log Out" />
+        </form>
 
 </body>
 </html>

@@ -1,4 +1,7 @@
 <?php
+require_once('isLoggedIn.php');
+checkIfLoggedIn();
+
 require_once('./dbConn.php');
 $conn = getDBconnection();
 
@@ -42,4 +45,9 @@ if ($row = mysqli_fetch_assoc($result)) {
 } else {
     echo "<p>No city found with ID $cityID.</p>";
 }
+?>
+
+<form name="LogoutForm" action="logOut.php" method="post">
+    <input type="submit" name="logoutButton" value="Log Out" />
+</form>
 

@@ -1,4 +1,7 @@
 <?php
+require_once('isLoggedIn.php');
+checkIfLoggedIn();
+
 echo "<h1>Edit City</h1>";
 
 require_once "dbConn.php";

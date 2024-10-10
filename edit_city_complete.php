@@ -1,4 +1,7 @@
 <?php
+require_once('isLoggedIn.php');
+checkIfLoggedIn();
+
 
 require_once "dbConn.php";
 $conn = getDbConnection();
@@ -23,6 +26,11 @@ if (!empty($_POST['Name']) && !empty($_POST['District']) && !empty($_POST['Popul
         die("Unable to update record: " . mysqli_error($conn));
     } else {
         echo "<h2>Successfully updated " . mysqli_affected_rows($conn) . " Record(s).</h2>";
+        ?>
+        <form name="LogoutForm" action="logOut.php" method="post">
+            <input type="submit" name="logoutButton" value="Log Out" />
+        </form>
+        <?php
     };
 }
 

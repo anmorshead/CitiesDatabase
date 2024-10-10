@@ -1,4 +1,7 @@
 <?php
+require_once('isLoggedIn.php');
+checkIfLoggedIn();
+
 require_once('./dbConn.php');
 $conn = getDBconnection();
 
@@ -62,5 +65,11 @@ if(!empty($_POST['Name']) && !empty($_POST['District']) && !empty($_POST['Popula
                 <p><input type="submit" id="submit" value="Add City" /></p>
             </form>
             <p><?php echo $message; ?></p>
+
+            <br><br>
+
+            <form name="LogoutForm" action="logOut.php" method="post">
+                <input type="submit" name="logoutButton" value="Log Out" />
+            </form>
             </body>
             </html>

@@ -1,3 +1,6 @@
+<?php require_once('isLoggedIn.php');
+checkIfLoggedIn();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,6 +69,9 @@ while ($row = mysqli_fetch_assoc($result))
     echo '<a href="?page=' . ($page + 1) . '"><button style="margin: 60px">Next Page</button></a>';
     ?>
 </footer>
+<form name="LogoutForm" action="logOut.php" method="post">
+    <input type="submit" name="logoutButton" value="Log Out" />
+</form>
 <?php
     closeDbConnection($conn);
 ?>

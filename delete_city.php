@@ -1,4 +1,7 @@
 <?php
+require_once('isLoggedIn.php');
+checkIfLoggedIn();
+
 echo "<h1>Delete City</h1>";
 
 require_once "dbConn.php";
@@ -32,6 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Error deleting data " . mysqli_error($conn));
     } else {
         echo "Successfully deleted" . mysqli_affected_rows($conn) . " record(s).";
+        ?>
+        <br>
+        <form name="LogoutForm" action="logOut.php" method="post">
+            <input type="submit" name="logoutButton" value="Log Out" />
+        </form>
+        <?php
         //need to exit so it will stop asking!
         exit;
     }
@@ -48,3 +57,5 @@ closeDbConnection($conn);
     <button type="button">No</button>
     </a>
 </form>
+
+
