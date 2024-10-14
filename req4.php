@@ -71,5 +71,7 @@ if(!empty($_POST['Name']) && !empty($_POST['District']) && !empty($_POST['Popula
             <form name="LogoutForm" action="logOut.php" method="post">
                 <input type="submit" name="logoutButton" value="Log Out" />
             </form>
+            <br>
+            <a href="req5and7.php">Back</a>
             </body>
             </html>

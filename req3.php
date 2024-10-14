@@ -73,5 +73,8 @@ closeDbConnection($conn);
             <input type="submit" name="logoutButton" value="Log Out" />
         </form>
 
+<br>
+<a href="req5and7.php">Back</a>
+
 </body>
 </html>

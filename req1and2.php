@@ -35,6 +35,11 @@ $recordsPerPage = 25;
 //offset = starting point for limit
 $offset = ($page - 1) * $recordsPerPage;
 
+//get the total number of records
+$totalRecordsResult = mysqli_query($conn, "SELECT COUNT(*) as total FROM city");
+$totalRecords = mysqli_fetch_assoc($totalRecordsResult)['total'];
+$totalPages = ceil($totalRecords / $recordsPerPage);
+
 $sql = "SELECT city.ID,city.Name,city.District,city.Population,country.name as country";
 $sql .= " FROM city INNER JOIN country";
 $sql .= " ON country.Code=city.CountryCode";
@@ -61,12 +66,20 @@ while ($row = mysqli_fetch_assoc($result))
 
 <footer>
     <?php
-    //only show prev page button if page# is >1
+    //only show the "Prev Page" button if page# is >1
     if ($page > 1) {
-            echo '<a href="?page=' . ($page - 1) . '"><button style="margin: 60px">Prev Page</button></a>';
-        };
-    //increase page# by 1 each time you hit next
-    echo '<a href="?page=' . ($page + 1) . '"><button style="margin: 60px">Next Page</button></a>';
+        echo '<a href="?page=' . ($page - 1) . '"><button style="margin: 60px">Prev Page</button></a>';
+    }
+
+    //add "Next Page" button if not on the last page
+    if ($page < $totalPages) {
+        echo '<a href="?page=' . ($page + 1) . '"><button style="margin: 60px">Next Page</button></a>';
+    }
+
+    //add "Last Page" button for ease of use
+    if ($page < $totalPages) {
+        echo '<a href="?page=' . $totalPages . '"><button style="margin: 60px">Last Page</button></a>';
+    }
     ?>
 </footer>
 <form name="LogoutForm" action="logOut.php" method="post">
@@ -75,5 +88,9 @@ while ($row = mysqli_fetch_assoc($result))
 <?php
     closeDbConnection($conn);
 ?>
+<br>
+<a href="req3.php"> Search City Database</a>
+<br>
+<a href="req4.php">Add a City to the Database</a>
 </body>
 </html>

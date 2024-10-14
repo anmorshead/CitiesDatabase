@@ -33,6 +33,8 @@ if ($row = mysqli_fetch_assoc($result)) {
     echo "<p>Population: " . $row['Population'] . "</p>";
     echo "<p>Country: " . $row['country'] . "</p>";
     echo "<p>Continent: " . $row['Continent'] . "</p>";
+    echo "<a href='https://en.wikipedia.org/wiki/" . urlencode($row['Name']) . "'>Wikipedia Page</a>";
+
 
     // get all languages for the country
     do {
@@ -50,4 +52,6 @@ if ($row = mysqli_fetch_assoc($result)) {
 <form name="LogoutForm" action="logOut.php" method="post">
     <input type="submit" name="logoutButton" value="Log Out" />
 </form>
+<br>
+<a href="req5and7.php">Back</a>
 

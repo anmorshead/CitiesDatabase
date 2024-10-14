@@ -40,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form name="LogoutForm" action="logOut.php" method="post">
             <input type="submit" name="logoutButton" value="Log Out" />
         </form>
+        <br>
+        <a href="req5and7.php">Back</a>
         <?php
         //need to exit so it will stop asking!
         exit;
