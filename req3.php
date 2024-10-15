@@ -19,6 +19,8 @@ if(!empty($_POST['search'])) {
 
     $searchTerm = $_POST['search'];
 
+    //selecting all cities LIKE the search term
+
     $sql = "SELECT city.ID,city.Name,city.District,city.Population,country.name as country";
     $sql .= " FROM city INNER JOIN country";
     $sql .= " ON country.Code=city.CountryCode";
@@ -43,7 +45,7 @@ if(!empty($_POST['search'])) {
                         </thead>
                             <tbody>";
 
-
+    //displaying results
     while ($row = mysqli_fetch_assoc($result)) {
         echo "
                                <tr>
